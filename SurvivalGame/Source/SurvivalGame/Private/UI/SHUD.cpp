@@ -11,7 +11,7 @@
 ASHUD::ASHUD()
 {
 	/* You can use the FObjectFinder in C++ to reference content directly in code. Although it's advisable to avoid this and instead assign content through Blueprint child classes. */
-	static ConstructorHelpers::FObjectFinder<UTexture2D> HUDCenterDotObj(TEXT("/Game/UI/HUD/T_CenterDot_M.T_CenterDot_M"));
+	static ConstructorHelpers::FObjectFinder<UTexture2D> HUDCenterDotObj(TEXT("/Game/UI/HUD/cross_hair.cross_hair"));
 	CenterDotIcon = UCanvas::MakeIcon(HUDCenterDotObj.Object);
 }
 
@@ -28,7 +28,8 @@ void ASHUD::DrawCenterDot()
 {
 	float CenterX = Canvas->ClipX / 2;
 	float CenterY = Canvas->ClipY / 2;
-	float CenterDotScale = 0.07f;
+	//float CenterDotScale = 0.07f;
+	float CenterDotScale = 0.1f;
 
 	ASCharacter* Pawn = Cast<ASCharacter>(GetOwningPawn());
 	if (Pawn && Pawn->IsAlive())
